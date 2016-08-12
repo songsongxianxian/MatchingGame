@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>纸牌记忆游戏</title>
+	<link href='//cdn.webfont.youziku.com/webfonts/nomal/89249/45265/57a56a7ef629d80ce0143a69.css' rel='stylesheet' type='text/css' />
+	<link rel="stylesheet" href="app.css"/>
+</head>
+
+<body ng-controller="indexController">
+	<audio id="soundOver">
+		<source src="sounds/over.wav"/>
+		<source src="sounds/over.ogg"/>
+	</audio>
+	<audio id="soundActive">
+		<source src="sounds/active.mp3"/>
+		<source src="sounds/active.ogg"/>
+	</audio>
+
+	<header>
+		<h1 >MatchingGame</h1>
+		<div class="extra">
+			<div class="info">
+				<div>
+					<i class="iconfont">&#xe605;</i>
+					<em ng-click="register()">用户</em>
+					<i class="iconfont">&#xe607;</i>
+					<form ng-submit="logIn()" ng-class="{'hidden':!registing}">
+						<input type="text" ng-model="user" placeholder="起个名字吧">
+					</form>
+					<span ng-class="{'hidden':registing}">{{user}}</span>
+				</div>
+				<div>
+					<i class="iconfont">&#xe601;</i>
+					<em>最佳</em>
+					<i class="iconfont">&#xe607;</i>
+						<span>{{best}}</span>
+
+				</div>
+				<div>
+					<i class="iconfont">&#xe604;</i>
+					<em>当前</em>
+					<i class="iconfont">&#xe607;</i>
+						<span>{{time}}</span>
+
+				</div>
+			</div>
+			<aside>	
+					<i class="iconfont" ng-class="{'hidden':isPaused}" ng-click="gamePause()">&#xe600;</i>
+					<i class="iconfont" ng-class="{'hidden':!isPaused}" ng-click="gamePlay()">&#xe608;</i>
+					<i class="iconfont" ng-click="newGame()">&#xe603;</i>
+			</aside>
+		</div>
+
+	</header>
+	
+	<section id="gameTable">
+		<div id="cards"></div>
+	</section>
+	
+	<footer>
+		<h3>Enjoy H5,enjoy life!</h3>
+	</footer>
+</body>
+
+	<script type="text/javascript" src="./node_modules/jquery/dist/jquery.js"></script>
+	<script type="text/javascript" src="./node_modules/angular/angular.js"></script>
+	<script type="text/javascript" src="app.js"></script>
+	<script type="text/javascript" src="service.js"></script>
+	<script type="text/javascript" src="indexdb.js"></script>
+
+
+
+</html>

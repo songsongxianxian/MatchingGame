@@ -1,0 +1,251 @@
+/*
+	CSS File for the game
+*/
+/*图标字体*/
+@font-face {font-family: 'iconfont';
+    src: url('./font/iconfont.eot'); /* IE9*/
+    src: url('./font/iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('./font/iconfont.woff') format('woff'), /* chrome、firefox */
+    url('./font/iconfont.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+    url('./font/iconfont.svg#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+.iconfont{
+    font-family:"iconfont" !important;
+    font-size:16px;font-style:normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* 适配*/
+@media (width: 320px) {
+	html {
+		font-size: 12px;
+	}
+}
+
+@media (width: 360px) {
+	html {
+		font-size: 13.5px;
+	}
+}
+
+@media (width: 375px) {
+	html {
+		font-size: 14px;
+	}
+}
+
+@media (width: 400px) {
+	html {
+		font-size: 15px;
+	}
+}
+
+@media (width: 414px) {
+	html {
+		font-size: 15.5px;
+	}
+}
+
+@media (min-width: 640px) {
+	html {
+		font-size: 24px;
+	}
+}
+/*样式重置*/
+body,header,footer,h1,p{
+	margin: 0;
+	padding: 0;
+}
+html{
+	width: 100%;
+	height: 100%;
+	min-height: 100%;
+}
+body {
+	width: 100%;
+	height: 100%;
+	min-height: 100%;
+	text-align:center;
+	background: #a46740 url(images/bg.jpg);
+	color: #DDD;
+	font-family: 'BernhardFashion50351450515ca1',"Tahoma","Verdana","Microsoft YaHei","simsun",sans-serif; /*web fonts*/
+
+	display: flex;
+	flex-direction: column;
+}
+
+a{
+	text-decoration: none;
+}
+em{
+	font-style: normal;
+}
+.hidden{
+	display: none;
+}
+
+/*开始样式*/
+#gameTable {
+
+	overflow: hidden;
+	box-sizing: border-box;
+
+	border-radius: 0.25rem;
+	border: 0.0625rem solid #666;
+
+	position:relative;
+	background: #233 url(images/table.jpg);
+
+	display: flex;
+	-webkit-box-pack: center;
+	-webkit-box-align: center;
+	-webkit-box-shadow: 0.188rem 0.188rem 0.375rem rgba(140,90,90,1);
+
+	flex:1;
+}
+h1{
+	padding: 0.75rem 0 0.25rem;
+	text-align: center;
+	line-height: 1.2;
+	font-size: 2.5rem;
+	font-weight: 700;
+	color:#000;
+	}
+.extra{
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	width: 100%;
+	display: flex;
+	padding: 0 4rem;
+	box-sizing: border-box;
+	border-top: 1px solid #ccc;
+
+}
+.info{
+	flex:4;
+	text-align: left;
+	display: flex;
+	flex-wrap: wrap;
+	align-content: space-around;
+}
+.info div{
+	width: 100%;
+}
+form{
+	width: 6rem;
+	display: inline-block;
+}
+.info input{
+	width: 100%;
+	height: 1.5rem;
+	background-color: #ccc;
+	border:none;
+	color:#000;
+	text-align: center;
+	font-size: 0.75rem;
+}
+.info div i{
+	font-size: 1.5rem;
+}
+.info div span{
+	padding-left: 0.5rem;
+	font-size: 1.5rem;
+	font-weight: 700;
+	color:#000;
+}
+.info em{
+	font-size: 1.2rem;
+	padding: 0 0.5rem;
+	color:#ccc;
+}
+.extra aside{
+	padding: 0.5rem 0;
+	width: 3rem;
+	text-align: right;
+	line-height: 3.1rem;
+}
+
+.extra i{
+	text-align: right;
+	font-size: 2.5rem;
+	color:#ccc;
+}
+
+
+#cards {
+	position: relative;
+	flex:1;
+	margin: 1.25rem;
+	justify-content: space-between;
+	flex-wrap:wrap;
+	align-content: space-around;
+
+	display: flex;
+}
+.wrap {
+	width: 20%;
+	height: 4.25rem;
+	-webkit-transition: all .5s;
+}
+
+.card {
+	width: 2.5rem;
+	height: 3.75rem;
+	margin: 0 auto;
+	-webkit-transition: all .5s;
+}
+
+.face {
+	border-radius:0.25rem;
+	width: 2.5rem;
+	height: 3.75rem;
+	position: absolute;
+
+	-webkit-transition-property: opacity, -webkit-transform, -webkit-box-shadow;
+	-webkit-transition-duration: .5s;
+	-webkit-backface-visibility: hidden;
+}
+
+.front {
+	background: url(images/deck.png) 0 3.7rem;
+	background-size: 32.5rem 18.75rem;
+	z-index: 10;
+}
+
+.back {
+	background: url(images/deck.png);
+	background-size: 32.5rem 18.75rem;
+	-webkit-transform: rotate3d(0,1,0, -180deg);
+	z-index: 8;
+}
+
+.card:hover .face {
+	-webkit-box-shadow: 0 0 1.25rem #aaa;
+}
+
+.flipped .face{
+	-webkit-box-shadow: 0 0 1.25rem #aaa;
+}
+.flipped .front{
+	-webkit-transform: rotate3d(0,1,0, 180deg);
+	z-index:8;
+}
+.flipped .back{
+	-webkit-transform: rotate3d(0,1,0, 0deg);
+	z-index:10;
+}
+
+.removed {
+	opacity:0;
+}
+
+.J1{background-position: -50rem 0;}
+.Q1{background-position: -55rem 0;}
+.K1{background-position: -60rem 0;}
+.J2{background-position: -50rem 7.5rem;}
+.Q2{background-position: -55rem 7.5rem;}
+.K2{background-position: -60rem 7.5rem;}
